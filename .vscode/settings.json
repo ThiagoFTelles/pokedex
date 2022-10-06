@@ -1,0 +1,13 @@
+{
+  "files.exclude": {
+    "node_modules": true,
+    ".vscode": false,
+    ".next": true,
+    ".eslintrc.json": true,
+    "yarn.lock": true,
+    ".gitignore": true,
+    "package.json": true,
+    "package-lock.json": true,
+    "public": true
+  }
+}
