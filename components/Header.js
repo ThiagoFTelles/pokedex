@@ -12,6 +12,7 @@ export default function Header() {
             width="30"
             height="30"
             alt="Pokedex"
+            className={styles.logoImage}
           />
         </Link>
         <h1>Pokedex</h1>

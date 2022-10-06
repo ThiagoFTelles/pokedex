@@ -17,3 +17,7 @@
   .logo {
   padding: .5rem 0;
   }
+
+  .logoImage {
+    cursor:pointer;
+  }
