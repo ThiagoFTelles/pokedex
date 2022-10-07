@@ -11,7 +11,7 @@ export default function Layout({ children }) {
       </Head>
       <Header />
       <section className="AppBody">
-        <main className="mainContainer">{children}</main>
+        <main className="mainContainer animeLeft">{children}</main>
       </section>
       <Footer />
     </div>
