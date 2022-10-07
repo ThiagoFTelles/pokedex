@@ -8,7 +8,7 @@ export async function getStaticProps() {
   const { results } = data;
 
   // add pokemon id
-  const pokemons = results.map((pokemon, index) => ({
+  const pokemons = results.map((pokemon) => ({
     ...pokemon,
     id: pokemon.url.split('/')[6],
   }));
