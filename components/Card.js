@@ -8,8 +8,8 @@ export default function Card({ pokemon }) {
     <div>
       <Image
         src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${id}.gif`}
-        width="120"
-        height="120"
+        width="70"
+        height="70"
         alt={name}
       />
       <h3>
