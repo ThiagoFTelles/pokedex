@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 
 export default function Card({ pokemon }) {
@@ -12,9 +13,11 @@ export default function Card({ pokemon }) {
         height="70"
         alt={name}
       />
-      <h3>
-        {id} - {name}
-      </h3>
+      <p>#{id}</p>
+      <h3>{name}</h3>
+      <Link href={`/pokemon/${id}`}>
+        <a>Details</a>
+      </Link>
     </div>
   );
 }
