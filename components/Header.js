@@ -7,13 +7,15 @@ export default function Header() {
     <header className={styles.header}>
       <nav className={`${styles.nav} container`}>
         <Link className={styles.logo} href="/" aria-label="Pokedex - Home">
-          <Image
-            src="/images/pokeball.png"
-            width="30"
-            height="30"
-            alt="Pokedex"
-            className={styles.logoImage}
-          />
+          <span>
+            <Image
+              src="/images/pokeball.png"
+              width="30"
+              height="30"
+              alt="Pokedex"
+              className={styles.logoImage}
+            />
+          </span>
         </Link>
         <h1>Pokedex</h1>
         <ul>
