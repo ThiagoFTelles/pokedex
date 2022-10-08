@@ -12,8 +12,8 @@ export default function Card({ pokemon }) {
         <span>
           <Image
             src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${id}.gif`}
-            width="70"
-            height="70"
+            width="90"
+            height="90"
             alt={name}
           />
           <h3>{`#${id} ${name}`}</h3>

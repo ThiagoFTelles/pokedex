@@ -1,7 +1,7 @@
 .home {
   overflow: hidden;
   &:hover{
-    cursor: url(/images/pokeball.png) 20 20,  auto;
+    cursor: url(/images/pokeball.png) 5 5,  auto;
   }
   ul {
     height: 80vh;
@@ -11,7 +11,7 @@
     padding-bottom: 25px;
 
     li {
-      margin: 0 55px;
+      margin: 0 35px;
     }
   }
 }
