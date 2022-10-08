@@ -45,6 +45,17 @@ a {
   color: $textColor;
 }
 
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh + 0rem);
+}
+
+.AppBody {
+  flex: 1;
+  background: url(/images/background.png) no-repeat 0% 67%;
+}
+
 .container {
   max-width: 50rem;
   padding: 0 1rem;
@@ -53,8 +64,6 @@ a {
 
 .mainContainer {
   margin-top: 2rem;
-  background: url(/images/background.png) no-repeat 0% 62%;
-  // filter: blur(8px);
 }
 
 .title {
@@ -77,16 +86,6 @@ a {
     opacity: 1;
     transform: initial;
   }
-}
-
-.App {
-  display: flex;
-  flex-direction: column;
-  min-height: calc(100vh + 0rem);
-}
-
-.AppBody {
-  flex: 1;
 }
 
 .loading {

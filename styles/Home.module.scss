@@ -1,12 +1,14 @@
 .home {
+  overflow: hidden;
   ul {
     height: 80vh;
     max-height: 550px;
     display: flex;
     align-items: flex-end;
+    padding-bottom: 30px;
 
     li {
-      margin: 0 85px;
+      margin: 0 65px;
     }
   }
 }
