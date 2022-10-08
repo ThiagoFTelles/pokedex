@@ -1,4 +1,4 @@
-import styles from '../../styles/Pokemon.module.css';
+import styles from '../../styles/Pokemon.module.scss';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 
