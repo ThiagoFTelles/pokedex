@@ -26,8 +26,21 @@ export const getStaticProps = async ({ params }) => {
   const response = await fetch(`${api}/${id}`);
   const data = await response.json();
 
+  async function getDescription(pokemon) {
+    const result = await fetch(pokemon.species.url);
+    const data = await result.json();
+    const pokemonDescription = data.flavor_text_entries
+      .filter((e) => e.language.name === 'en')
+      .map((e) => e.flavor_text);
+    return pokemonDescription;
+  }
+
+  const description = await getDescription(data);
+
+  const pokemon = { ...data, description };
+
   return {
-    props: { pokemon: data },
+    props: { pokemon },
   };
 };
 
@@ -37,29 +50,38 @@ const Pokemon = ({ pokemon }) => {
     return <div className="loading"></div>;
   }
 
-  const { name, id, types } = pokemon;
+  const { name, id, types, description } = pokemon;
   return (
     <div className={`container ${styles.details}`}>
       <span>
-        <h1 className={`title ${styles.title}`}>{name}</h1>
+        <span className={styles.image}>
+          <Image
+            src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${id}.gif`}
+            width="100"
+            height="100"
+            alt={name}
+          />
+        </span>
+        <h1 className={`title ${styles.title}`}>{`#${id} ${name}`}</h1>
+        {/* <h1 className={`title ${styles.title}`}>{description}</h1> */}
+        <div className={styles.typesContainer}>
+          {types.map(({ type }, index) => (
+            <p className={`${styles.type} ${styles[type.name]}`} key={index}>
+              {type.name}
+            </p>
+          ))}
+        </div>
+        <div className={styles.buttons}>
+          <button className={`${styles.button} prev`}>&lt; Prev</button>
+          <button className={`${styles.button} next`}>Next &gt;</button>
+        </div>
         <Image
-          src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${id}.gif`}
-          width="100"
-          height="100"
-          alt={name}
+          src="/images/pokedex.png"
+          width="360"
+          height="532"
+          alt="pokedex"
+          className={styles.pokedex}
         />
-        <div>
-          <h3>#{id}</h3>
-        </div>
-        <div>
-          <div className={styles.typesContainer}>
-            {types.map(({ type }, index) => (
-              <p className={`${styles.type} ${styles[type.name]}`} key={index}>
-                {type.name}
-              </p>
-            ))}
-          </div>
-        </div>
       </span>
     </div>
   );
