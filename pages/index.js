@@ -1,4 +1,5 @@
 import Card from '../components/Card';
+import styles from '../styles/Home.module.css';
 
 export async function getStaticProps() {
   const maxPokemons = 150;
@@ -22,7 +23,7 @@ export async function getStaticProps() {
 
 export default function Home({ pokemons }) {
   return (
-    <div className="container">
+    <div className={`container ${styles.home}`}>
       <h1>Pokedex</h1>
       <ul>
         {pokemons.map((pokemon) => (
