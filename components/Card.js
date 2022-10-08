@@ -8,15 +8,16 @@ export default function Card({ pokemon }) {
 
   return (
     <div className={styles.card}>
-      <Image
-        src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${id}.gif`}
-        width="70"
-        height="70"
-        alt={name}
-      />
-      <h3>{`#${id} ${name}`}</h3>
       <Link href={`/pokemon/${id}`}>
-        <a>Details</a>
+        <span>
+          <Image
+            src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${id}.gif`}
+            width="70"
+            height="70"
+            alt={name}
+          />
+          <h3>{`#${id} ${name}`}</h3>
+        </span>
       </Link>
     </div>
   );
