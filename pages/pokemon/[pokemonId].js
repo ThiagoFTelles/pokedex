@@ -40,26 +40,27 @@ const Pokemon = ({ pokemon }) => {
   const { name, id, types } = pokemon;
   return (
     <div className={`container ${styles.details}`}>
-      <h1 className={styles.title}>{name}</h1>
-      <Image
-        src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${id}.gif`}
-        width="100"
-        height="100"
-        alt={name}
-      />
-      <div>
-        <h3>#:{id}</h3>
-      </div>
-      <div>
-        <h3>Type:</h3>
-        <div className={styles.typesContainer}>
-          {types.map(({ type }, index) => (
-            <p className={`${styles.type} ${styles[type.name]}`} key={index}>
-              {type.name}
-            </p>
-          ))}
+      <span>
+        <h1 className={`title ${styles.title}`}>{name}</h1>
+        <Image
+          src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${id}.gif`}
+          width="100"
+          height="100"
+          alt={name}
+        />
+        <div>
+          <h3>#{id}</h3>
         </div>
-      </div>
+        <div>
+          <div className={styles.typesContainer}>
+            {types.map(({ type }, index) => (
+              <p className={`${styles.type} ${styles[type.name]}`} key={index}>
+                {type.name}
+              </p>
+            ))}
+          </div>
+        </div>
+      </span>
     </div>
   );
 };

@@ -1,5 +1,12 @@
 @import "./variables";
 
+@font-face {
+  font-family: 'Pokemon';
+  src: url('../assets/PokemonSolid.ttf');
+  font-weight: 400;
+  font-style: normal;
+  }
+
 *{
   box-sizing: border-box;
   
@@ -68,7 +75,7 @@ a {
 }
 
 .title {
-  font-family: $fontFamily;
+  font-family: Pokemon;
   line-height: 1;
   font-size: 3rem;
   margin: 1rem 0;
