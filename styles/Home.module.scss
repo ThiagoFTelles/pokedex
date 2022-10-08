@@ -1,14 +1,17 @@
 .home {
   overflow: hidden;
+  &:hover{
+    cursor: url(/images/pokeball.png) 20 20,  auto;
+  }
   ul {
     height: 80vh;
     max-height: 550px;
     display: flex;
     align-items: flex-end;
-    padding-bottom: 30px;
+    padding-bottom: 25px;
 
     li {
-      margin: 0 65px;
+      margin: 0 55px;
     }
   }
 }
