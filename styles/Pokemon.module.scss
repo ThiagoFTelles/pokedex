@@ -36,7 +36,7 @@ span.image {
 }
 
 .description {
-  width: 250px;
+  width: 63%;
   height: 50px;
   color: #fff;
   background-color: #306e46;
@@ -55,9 +55,8 @@ span.image {
 .buttons {
   position: absolute;
   bottom: 10%;
-  left: 50%;
+  left: 14%;
   width: 65%;
-  transform: translate(-57%, 0);
   display: flex;
   gap: 20px;
   z-index: 1;
@@ -68,7 +67,8 @@ span.image {
     border-radius: 5px;
     font-size: clamp(8px, 5vw, 1rem);
     font-weight: 600;
-    color: white;
+    color: #efefef;
+    text-transform: uppercase;
     background-color: #444;
     box-shadow: -2px 3px 0 #222, -4px 6px 0 #000;
     &:active {
@@ -91,11 +91,11 @@ span.image {
 }
 
 .type {
-  padding: .6em 1em;
+  padding: .3em 1em;
   margin-right: .5em;
   background: #000;
   color: #fff;
-  border: 1px solid #ffffff75;
+  border: 1px solid #00000075;
   border-radius: 6px;
   text-transform: uppercase;
   font-size: .8em;
