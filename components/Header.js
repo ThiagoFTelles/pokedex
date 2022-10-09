@@ -17,7 +17,7 @@ export default function Header() {
             />
           </span>
         </Link>
-        <h1>Pokedex</h1>
+        <h1 className={styles.title}>Pokedex</h1>
         <ul>
           <li>
             <Link href="/">
