@@ -28,6 +28,10 @@ p {
   cursor: default;
 }
 
+button {
+  cursor: pointer;
+}
+
 ul,
 li {
   list-style: none;
@@ -120,19 +124,4 @@ a {
   to {
     transform: translateX(125%);
   }
-}
-
-/* Scroolbar Track */
-::-webkit-scrollbar-track {
-  background: $titleBorder ;
-}
-
-/* Scroolbar Handle */
-::-webkit-scrollbar-thumb {
-  background: $titleColor;
-}
-
-/* Scroolbar Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: $titleColor;
 }
