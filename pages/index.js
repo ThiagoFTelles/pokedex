@@ -49,8 +49,10 @@ export default function Home({ pokemons }) {
   return (
     <div className={`container ${styles.home}`}>
       <h1>Pokedex</h1>
-      <button onClick={handleNext}>Next</button>
-      <button onClick={handlePrevious}>Previous</button>
+      <span>
+        <button onClick={handlePrevious}>Prev</button>
+        <button onClick={handleNext}>Next</button>
+      </span>
       <section ref={slides} style={sliderStyle}>
         <ul>
           {pokemons.map((pokemon) => (
