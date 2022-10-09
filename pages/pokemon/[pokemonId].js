@@ -32,11 +32,10 @@ export const getStaticProps = async ({ params }) => {
     const pokemonDescription = data.flavor_text_entries
       .filter((e) => e.language.name === 'en')
       .map((e) => e.flavor_text);
-    return pokemonDescription;
+    return pokemonDescription[0].split('.')[0];
   }
 
   const description = await getDescription(data);
-
   const pokemon = { ...data, description };
 
   return {
@@ -63,7 +62,7 @@ const Pokemon = ({ pokemon }) => {
           />
         </span>
         <h1 className={`title ${styles.title}`}>{`#${id} ${name}`}</h1>
-        {/* <h1 className={`title ${styles.title}`}>{description}</h1> */}
+        <h1 className={styles.description}>{`${description}.`}</h1>
         <div className={styles.typesContainer}>
           {types.map(({ type }, index) => (
             <p className={`${styles.type} ${styles[type.name]}`} key={index}>

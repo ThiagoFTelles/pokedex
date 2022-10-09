@@ -24,6 +24,7 @@ span.image {
 }
 
 .title {
+  text-transform: capitalize;
   color: $titleColor;
     text-shadow: 2px 0 $titleBorder, -2px 0 $titleBorder, 0 2px $titleBorder, 0 -2px $titleBorder, 1px 1px $titleBorder, -1px -1px $titleBorder, 1px -1px $titleBorder, -1px 1px $titleBorder;
     letter-spacing: 2px;
@@ -32,6 +33,23 @@ span.image {
   top: 51%;
   right: 27%;
   font-size: clamp(8px, 5vw, 25px);
+}
+
+.description {
+  width: 250px;
+  height: 50px;
+  color: #fff;
+  background-color: #306e46;
+  padding: 3px;
+  border: 2px solid #6c001d;
+  font-size: 0.7rem;
+  font-weight: 100;
+  font-family: monospace;
+  position: absolute;
+  bottom: 20%;
+  left: 15%;
+  overflow: hidden;
+  z-index: 1;
 }
 
 .buttons {
