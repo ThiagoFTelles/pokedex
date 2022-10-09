@@ -45,10 +45,6 @@ export default function Home({ pokemons }) {
   function handlePrevious() {
     currentSlide > 1 && setCurrentSlide(currentSlide - 1);
   }
-  console.log(currentSlide);
-  console.log(slides.current?.scrollWidth);
-  console.log(slideWidth);
-  console.log('----------');
 
   return (
     <div className={`container ${styles.home}`}>
