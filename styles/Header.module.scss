@@ -1,3 +1,5 @@
+@import "./variables";
+
 .header {
   box-shadow: 0 1px 1px rgba(0, 0, 0, .1);
   position: fixed;
@@ -5,19 +7,26 @@
   z-index: 100;
   background: #fff;
   top: 0px;
+  .title{
+    margin-top: -10px;
+    font-family: Pokemon;
+    color: $titleColor;
+    text-shadow: 2px 0 $titleBorder, -2px 0 $titleBorder, 0 2px $titleBorder, 0 -2px $titleBorder, 1px 1px $titleBorder, -1px -1px $titleBorder, 1px -1px $titleBorder, -1px 1px $titleBorder;
+    letter-spacing: 2px;
   }
+}
   
-  .nav {
+.nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 4rem;
-  }
+}
   
-  .logo {
+.logo {
   padding: .5rem 0;
-  }
+}
 
-  .logoImage {
-    cursor:pointer;
-  }
+.logoImage {
+  cursor:pointer;
+}
