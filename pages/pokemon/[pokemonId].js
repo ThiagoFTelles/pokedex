@@ -1,6 +1,8 @@
 import styles from '../../styles/Pokemon.module.scss';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
+import { useEffect, useState } from 'react';
 
 export const getStaticPaths = async () => {
   const maxPokemons = 150;
@@ -45,11 +47,17 @@ export const getStaticProps = async ({ params }) => {
 
 const Pokemon = ({ pokemon }) => {
   const router = useRouter();
+  const { name, id, types, description } = pokemon;
+
+  useEffect(() => {
+    const msg = new SpeechSynthesisUtterance();
+    msg.text = description;
+    window.speechSynthesis.speak(msg);
+  }, [description]);
+
   if (router.isFallback) {
     return <div className="loading"></div>;
   }
-
-  const { name, id, types, description } = pokemon;
   return (
     <div className={`container ${styles.details}`}>
       <span>
@@ -71,8 +79,22 @@ const Pokemon = ({ pokemon }) => {
           ))}
         </div>
         <div className={styles.buttons}>
-          <button className={`${styles.button} prev`}>&lt; Prev</button>
-          <button className={`${styles.button} next`}>Next &gt;</button>
+          <Link href={`${id - 1}`}>
+            <button
+              disabled={Number(id) === 1}
+              className={`${styles.button} prev`}
+            >
+              &lt; Prev
+            </button>
+          </Link>
+          <Link href={`${id + 1}`}>
+            <button
+              disabled={Number(id) >= 150}
+              className={`${styles.button} next`}
+            >
+              Next &gt;
+            </button>
+          </Link>
         </div>
         <Image
           src="/images/pokedex.png"
