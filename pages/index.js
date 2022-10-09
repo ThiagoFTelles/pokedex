@@ -1,3 +1,4 @@
+import React, { useEffect } from 'react';
 import Card from '../components/Card';
 import styles from '../styles/Home.module.scss';
 
@@ -22,16 +23,47 @@ export async function getStaticProps() {
 }
 
 export default function Home({ pokemons }) {
+  const slides = React.useRef();
+  const [currentSlide, setCurrentSlide] = React.useState(1);
+  const [sliderStyle, setSliderStyle] = React.useState({});
+  const slideWidth = slides.current?.offsetWidth;
+  const scrollWidth = slides.current?.scrollWidth;
+  const pokemonsPerPage = 3;
+  const totalPages = pokemons.length / pokemonsPerPage;
+
+  useEffect(() => {
+    setSliderStyle({
+      transform: `translateX(-${
+        (scrollWidth / totalPages) * (currentSlide - 1)
+      }px)`,
+    });
+  }, [scrollWidth, currentSlide, totalPages]);
+
+  function handleNext() {
+    currentSlide < totalPages && setCurrentSlide(currentSlide + 1);
+  }
+  function handlePrevious() {
+    currentSlide > 1 && setCurrentSlide(currentSlide - 1);
+  }
+  console.log(currentSlide);
+  console.log(slides.current?.scrollWidth);
+  console.log(slideWidth);
+  console.log('----------');
+
   return (
     <div className={`container ${styles.home}`}>
       <h1>Pokedex</h1>
-      <ul>
-        {pokemons.map((pokemon) => (
-          <li key={pokemon.id}>
-            <Card key={pokemon.id} pokemon={pokemon} />
-          </li>
-        ))}
-      </ul>
+      <button onClick={handleNext}>Next</button>
+      <button onClick={handlePrevious}>Previous</button>
+      <section ref={slides} style={sliderStyle}>
+        <ul>
+          {pokemons.map((pokemon) => (
+            <li key={pokemon.id}>
+              <Card key={pokemon.id} pokemon={pokemon} />
+            </li>
+          ))}
+        </ul>
+      </section>
     </div>
   );
 }
