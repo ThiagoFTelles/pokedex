@@ -26,8 +26,8 @@ span.image {
 .title {
   text-transform: capitalize;
   color: $titleColor;
-    text-shadow: 2px 0 $titleBorder, -2px 0 $titleBorder, 0 2px $titleBorder, 0 -2px $titleBorder, 1px 1px $titleBorder, -1px -1px $titleBorder, 1px -1px $titleBorder, -1px 1px $titleBorder;
-    letter-spacing: 2px;
+  text-shadow: 2px 0 $titleBorder, -2px 0 $titleBorder, 0 2px $titleBorder, 0 -2px $titleBorder, 1px 1px $titleBorder, -1px -1px $titleBorder, 1px -1px $titleBorder, -1px 1px $titleBorder;
+  letter-spacing: 2px;
   position: absolute;
   font-weight: 600;
   top: 51%;
