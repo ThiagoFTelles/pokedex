@@ -48,8 +48,7 @@ export default function Home({ pokemons }) {
 
   return (
     <div className={`container ${styles.home}`}>
-      <h1>Pokedex</h1>
-      <span>
+      <span className={styles.buttons}>
         <button onClick={handlePrevious}>Prev</button>
         <button onClick={handleNext}>Next</button>
       </span>
