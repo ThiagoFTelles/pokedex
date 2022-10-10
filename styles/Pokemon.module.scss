@@ -24,7 +24,7 @@ span.image {
 }
 
 .title {
-  font-size: clamp(8px,4vw,20px);
+  font-size: 1.3em;
   text-transform: capitalize;
   color: $titleColor;
   text-shadow: 2px 0 $titleBorder, -2px 0 $titleBorder, 0 2px $titleBorder, 0 -2px $titleBorder, 1px 1px $titleBorder, -1px -1px $titleBorder, 1px -1px $titleBorder, -1px 1px $titleBorder;
