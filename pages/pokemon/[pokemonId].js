@@ -48,13 +48,16 @@ export const getStaticProps = async ({ params }) => {
 const Pokemon = ({ pokemon }) => {
   const router = useRouter();
   const { name, id, types, description } = pokemon;
+  const displayDescription = description.replace(/\n/g, ' ');
 
+  console.log(pokemon);
   useEffect(() => {
     window.speechSynthesis.cancel();
     const msg = new SpeechSynthesisUtterance();
-    msg.text = description;
+    msg.lang = 'en-US';
+    msg.text = name + '. ' + displayDescription;
     window.speechSynthesis.speak(msg);
-  }, [description]);
+  }, [name, displayDescription]);
 
   if (router.isFallback) {
     return <div className="loading"></div>;
