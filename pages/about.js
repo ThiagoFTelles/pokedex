@@ -54,7 +54,8 @@ export default function About() {
       </span>
       <span className={styles.image}>
         <Image
-          src="/images/charizard.png"
+          className="animeLeft"
+          src={`${isPlaying ? '/images/fire.gif' : '/images/charizard.png'}`}
           width="250"
           height="250"
           alt="Charizard"
