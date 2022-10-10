@@ -4,10 +4,10 @@
     ".vscode": false,
     ".next": true,
     ".eslintrc.json": true,
-    "yarn.lock": true,
+    "yarn.lock": false,
     ".gitignore": true,
-    "package.json": true,
-    "package-lock.json": true,
+    "package.json": false,
+    "package-lock.json": false,
     "public": false
   }
 }
