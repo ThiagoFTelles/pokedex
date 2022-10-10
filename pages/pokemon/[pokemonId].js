@@ -47,16 +47,16 @@ export const getStaticProps = async ({ params }) => {
 
 const Pokemon = ({ pokemon }) => {
   const router = useRouter();
-  const { name, id, types, description } = pokemon;
-  const displayDescription = description.replace(/\n/g, ' ');
+  // const { name, id, types, description } = pokemon;
+  const displayDescription = pokemon?.description.replace(/\n/g, ' ');
 
   useEffect(() => {
     window.speechSynthesis.cancel();
     const msg = new SpeechSynthesisUtterance();
     msg.lang = 'en-US';
-    msg.text = name + '. ' + displayDescription;
+    msg.text = pokemon?.name + '. ' + displayDescription;
     window.speechSynthesis.speak(msg);
-  }, [name, displayDescription]);
+  }, [pokemon?.name, displayDescription]);
 
   if (router.isFallback) {
     return <div className="loading"></div>;
@@ -67,33 +67,35 @@ const Pokemon = ({ pokemon }) => {
       <span>
         <span className={styles.image}>
           <Image
-            src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${id}.gif`}
+            src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${pokemon?.id}.gif`}
             width="100"
             height="100"
-            alt={name}
+            alt={pokemon?.name}
           />
         </span>
-        <h1 className={`title ${styles.title}`}>{`#${id} ${name}`}</h1>
-        <h1 className={styles.description}>{`${description}.`}</h1>
+        <h1
+          className={`title ${styles.title}`}
+        >{`#${pokemon?.id} ${pokemon?.name}`}</h1>
+        <h1 className={styles.description}>{`${pokemon?.description}.`}</h1>
         <div className={styles.typesContainer}>
-          {types.map(({ type }, index) => (
+          {pokemon?.types.map(({ type }, index) => (
             <p className={`${styles.type} ${styles[type.name]}`} key={index}>
               {type.name}
             </p>
           ))}
         </div>
         <div className={styles.buttons}>
-          <Link href={`${id - 1}`}>
+          <Link href={`${pokemon?.id - 1}`}>
             <button
-              disabled={Number(id) === 1}
+              disabled={Number(pokemon?.id) === 1}
               className={`${styles.button} prev`}
             >
               &lt; Prev
             </button>
           </Link>
-          <Link href={`${id + 1}`}>
+          <Link href={`${pokemon?.id + 1}`}>
             <button
-              disabled={Number(id) >= 150}
+              disabled={Number(pokemon?.id) >= 150}
               className={`${styles.button} next`}
             >
               Next &gt;
