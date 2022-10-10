@@ -2,7 +2,7 @@ import styles from '../../styles/Pokemon.module.scss';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 export const getStaticPaths = async () => {
   const maxPokemons = 150;
@@ -61,6 +61,7 @@ const Pokemon = ({ pokemon }) => {
   if (router.isFallback) {
     return <div className="loading"></div>;
   }
+
   return (
     <div className={`container ${styles.details}`}>
       <span>
