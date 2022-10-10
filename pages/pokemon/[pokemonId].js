@@ -50,7 +50,6 @@ const Pokemon = ({ pokemon }) => {
   const { name, id, types, description } = pokemon;
   const displayDescription = description.replace(/\n/g, ' ');
 
-  console.log(pokemon);
   useEffect(() => {
     window.speechSynthesis.cancel();
     const msg = new SpeechSynthesisUtterance();
