@@ -1,6 +1,6 @@
 @import "./variables";
 
-.details {
+.pokedex {
   text-align: center;
   height: 80vh;
   span{
@@ -9,30 +9,31 @@
     padding: 15px;
     position: relative;
   }
+  :global(.pokemon) {
+    :global(.pokemonImage) {
+      position: absolute;
+      top: 28%;
+      z-index: 1;
+      left: 30%;
+    }
+  }
+  :global(.pokemonName) {
+    font-family: Pokemon;
+    position: fixed;
+    top: 57%;
+    right: 40%;
+    font-size: 1.2em;
+    text-transform: capitalize;
+    letter-spacing: 2px;
+    font-weight: 600;
+    color: $titleColor;
+    text-shadow: 2px 0 $titleBorder, -2px 0 $titleBorder, 0 2px $titleBorder, 0 -2px $titleBorder, 1px 1px $titleBorder, -1px -1px $titleBorder, 1px -1px $titleBorder, -1px 1px $titleBorder;
+  }
 }
 
-.pokedex {
+.pokedexImg {
   width: 100%;
   max-width: 425px;
-}
-
-span.image {
-  position: absolute;
-  top: 28%;
-  z-index: 1;
-  left: 30%;
-}
-
-.title {
-  font-size: 1.3em;
-  text-transform: capitalize;
-  color: $titleColor;
-  text-shadow: 2px 0 $titleBorder, -2px 0 $titleBorder, 0 2px $titleBorder, 0 -2px $titleBorder, 1px 1px $titleBorder, -1px -1px $titleBorder, 1px -1px $titleBorder, -1px 1px $titleBorder;
-  letter-spacing: 2px;
-  position: absolute;
-  font-weight: 600;
-  top: 51%;
-  right: 27%;
 }
 
 .description {

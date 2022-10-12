@@ -1,5 +1,6 @@
+import Link from 'next/link';
 import React, { useEffect } from 'react';
-import Card from '../components/Card';
+import Pokemon from '../components/Pokemon';
 import styles from '../styles/Home.module.scss';
 
 export async function getStaticProps() {
@@ -55,9 +56,11 @@ export default function Home({ pokemons }) {
       <section ref={slides} style={sliderStyle}>
         <ul>
           {pokemons.map((pokemon) => (
-            <li key={pokemon.id}>
-              <Card key={pokemon.id} pokemon={pokemon} />
-            </li>
+            <Link key={pokemon.id} href={`/pokedex/${pokemon.id}`}>
+              <li>
+                <Pokemon key={pokemon.id} pokemon={pokemon} />
+              </li>
+            </Link>
           ))}
         </ul>
       </section>

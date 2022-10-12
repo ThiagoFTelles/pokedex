@@ -1,8 +1,9 @@
-import styles from '../../styles/Pokemon.module.scss';
+import styles from '../../styles/Pokedex.module.scss';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { useEffect } from 'react';
+import Pokemon from '../../components/Pokemon';
 
 export const getStaticPaths = async () => {
   const maxPokemons = 150;
@@ -45,7 +46,7 @@ export const getStaticProps = async ({ params }) => {
   };
 };
 
-const Pokemon = ({ pokemon }) => {
+const Pokedex = ({ pokemon }) => {
   const router = useRouter();
   // const { name, id, types, description } = pokemon;
   const displayDescription = pokemon?.description.replace(/\n/g, ' ');
@@ -63,19 +64,9 @@ const Pokemon = ({ pokemon }) => {
   }
 
   return (
-    <div className={`container ${styles.details}`}>
+    <div className={`container ${styles.pokedex}`}>
       <span>
-        <span className={styles.image}>
-          <Image
-            src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${pokemon?.id}.gif`}
-            width="100"
-            height="100"
-            alt={pokemon?.name}
-          />
-        </span>
-        <h1
-          className={`title ${styles.title}`}
-        >{`#${pokemon?.id} ${pokemon?.name}`}</h1>
+        <Pokemon pokemon={pokemon} />
         <h1 className={styles.description}>{`${pokemon?.description}.`}</h1>
         <div className={styles.typesContainer}>
           {pokemon?.types.map(({ type }, index) => (
@@ -107,10 +98,10 @@ const Pokemon = ({ pokemon }) => {
           width="360"
           height="532"
           alt="pokedex"
-          className={styles.pokedex}
+          className={styles.pokedexImg}
         />
       </span>
     </div>
   );
 };
-export default Pokemon;
+export default Pokedex;
